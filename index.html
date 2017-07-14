@@ -17,14 +17,31 @@
 				<h4>pmargreff@gmail.com | github.com/pmargreff</h4>
 			</section>
 			<section>
+				<ul>
+					Indíce:
+					<li>Commit</li>
+					<li>so on</li>
+				</ul>
+			</section>
+			<section>
 				<section>
 					<h2>O que é?</h2>
 				</section>
 				<section>
-					Um controle de versão <span class="fragment">de terceira geração</span>
+					<ul>
+						<li>Um controle de versão <span class="fragment">de terceira geração</span></li>
+						<li class="fragment">Uma ferramenta que protege você de você mesmo.</li>
+					</ul>
 				</section>
 				<section>
-					Gerações anteriores eram:
+					<ul>
+						<span>Gerações anteriores:</span>
+						<li>Primeira geração: 1972</li>
+						<li>Segunda geração: 1990</li>
+						<li>Terceira geração: 2005</li>
+					</ul>
+				</section>
+				<section>
 					<ul>
 						<li>lentas</li>
 						<li>ocupavam espaço</li>
@@ -32,7 +49,10 @@
 					</ul>
 				</section>
 				<section>
-					Primeira versão em 7 de abril de 2005
+					<ul>
+						<li>Primeiro commit no primeiro dia de desenvolvimento <span class="fragment">no próprio projeto</span></li>
+						<li class="fragment">Primeira versão em 7 de abril de 2005</li>
+					</ul>
 				</section>
 			</section>
 			<section>
@@ -62,7 +82,64 @@
 				</section>
 			</section>
 			<section>
-				<h2>Commit</h2>
+				<section>
+					<h2>Configurando</h2>
+				</section>
+				<section>
+					<ul>
+						<span>Níveis:</span>
+						<li>system - todos usuários do sistema</li>
+						<li>global - usuário atual</li>
+						<li>local - válida apenas para o repositório atual</li>
+						<li>file - configurações e comandos a nível de arquivo</li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<span>Atributos básicos (obrigatórios):</span>
+						<li><pre><code>git config --local user.name "Batman"</code></pre></li>
+						<li><pre><code>git config --local user.email batman@hotmail.com </code></pre></li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<span>Outros atributos:</span>
+						<li><pre></pre></li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						Tarefa 1:
+						<li class="fragment">Criar um repositório</li>
+						<li class="fragment">Configurações básicas (a nível de repositório)</li>
+						<li class="fragment">Iniciar git</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h2>Commit</h2>
+				</section>
+				<section>
+					Registrar uma (várias alterações), podemos pensar em um commit como sendo o checkpoint do seu jogo favorito.
+					<span class="fragment">Mas antes, precisamos selecionar o que queremos salvar.</span>
+				</section>
+				<section>
+					<h2>Status</h2>
+				</section>
+				<section>
+					<h2>Add</h2>
+				</section>
+				<section>
+					Serve para que saibamos quais arquivos foram alterados/criados/removidos.
+				</section>
+				<section>
+					Pode ser feito de duas maneiras:
+					<ul>
+						<li>Manual</li>
+						<li>Iterativa</li>
+					</ul>
+				</section>
 			</section>
 			<section>
 				<h2>Clone</h2>
@@ -90,6 +167,9 @@
 				<h2>Logs</h2>
 			</section>
 			<section>
+				<h2>Revert</h2>
+			</section>
+			<section>
 				<h2>Blame</h2>
 			</section>
 			<section>
@@ -101,7 +181,9 @@
 		</div>
 	</div>
 	<script>
-	Reveal.initialize();
+	Reveal.initialize({
+		slideNumber: true
+	});
 	</script>
 </body>
 </html>
