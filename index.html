@@ -2,7 +2,7 @@
 <head>
 	<title>Git it done</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/moon.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/white.css">
 	<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.min.js"></script>
 	<meta charset="utf-8">
 </head>
@@ -140,6 +140,10 @@ pre {
 				<h2>Commit</h2>
 			</section>
 			<section>
+				<br>Visualmente
+				<img src="img/commit.svg">
+			</section>
+			<section>
 				Registrar uma (várias alterações), podemos pensar em um commit como sendo o checkpoint do seu jogo favorito.
 				<span class="fragment">Mas antes, precisamos selecionar o que queremos salvar.</span>
 			</section>
@@ -172,6 +176,12 @@ pre {
 			<section>
 				Iterativo
 				<br><pre><code>git add -i</code></pre>
+			</section>
+			<section>
+				<br>Commit
+				<br><pre><code>git commit -m "My awesome feature"</code></pre>
+				<br>ou
+				<br><pre><code>git commit </code></pre>
 			</section>
 			<section>
 				<h2>Delete</h2>
@@ -242,6 +252,10 @@ pre {
 				</ul>
 			</section>
 			<section>
+				<br>Visualmente
+				<img src="img/branches.svg">
+			</section>
+			<section>
 				<section>
 					<ul>
 						Tarefa 3.1:
@@ -257,11 +271,18 @@ pre {
 				O comando checkout serve (entre outras coisas) para navegação entre branches.
 			</section>
 			<section>
+				<img src="img/checkout.svg" height="600px">
+			</section>
+			<section>
 				<h2>Merge</h2>
 			</section>
 			<section>
 				O comando merge é usado para juntar branches quando a tarefa de uma branche foram finalizadas.
 				<br>E esse é um dos pontos fortes do git, em um merge, ele "sabe" quais partes de um arquivo deve sustituir por outro, de maneira automática.
+			</section>
+			<section>
+				<br>Visualmente
+				<img src="img/merge.svg">
 			</section>
 			<section>
 				<ul>
@@ -277,6 +298,10 @@ pre {
 			</section>
 			<section>
 				Servem como espelhos para base de código <span class="fragment">, também poderiam ser chamados de centralizadores, porém, estamos lidando com um sistema descentralizado.</span>
+			</section>
+			<section>
+				<br>Visualmente
+				<img src="img/remote.svg">
 			</section>
 			<section>
 				<h3>Agredadores</h3>
@@ -348,7 +373,29 @@ pre {
 			</section>
 		</section>
 		<section>
-			<h2>Revert</h2>
+			<section>
+				<h2>Desfazendo as coisas</h2>
+			</section>
+			<section>
+				Revert
+			</section>
+			<section>
+				Desfazendo os commits deixando no histórico
+			</section>
+			<section>
+				<br>Visualmente
+				<img src="img/revert.svg">
+			</section>
+			<section>
+				Reset
+			</section>
+			<section>
+				Desfazendo as coisas e apagando o histórico
+			</section>
+			<section>
+				<br>Visualmente
+				<img src="img/reset.svg">
+			</section>
 		</section>
 		<section>
 			<h3>Referências</h3>
