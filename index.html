@@ -38,17 +38,30 @@ pre {
 						<li>Controlar versão (WOW)</li>
 						<li>Reverter alterações</li>
 					</ul>
+				</ul>
+			</section>
+			<section>
+				<ul>
 					<li>Descentralização</li>
 					<ul>
 						<li>Desenvolvimento paralelo</li>
 					</ul>
+				</ul>
+			</section>
+			<section>
+				<ul>
 					<li>Segurança</li>
 					<ul>
 						<li>Validar se seus arquivos são realmente seus</li>
 					</ul>
+				</ul>
+			</section>
+			<section>
+				<ul>
 					<li>Performance</li>
 					<ul>
 						<li>Não desperdiça espaço criando cópias</li>
+						<li>Compressão super otimizada</li>
 					</ul>
 				</ul>
 			</section>
@@ -121,9 +134,6 @@ pre {
 					<li class="fragment">Iniciar git</li>
 				</ul>
 			</section>
-			<section>
-				Resposta 1:
-			</section>
 		</section>
 		<section>
 			<section>
@@ -146,10 +156,8 @@ pre {
 				<h2>Add</h2>
 			</section>
 			<section>
-			</section>
-			<section>
-				Pode ser feito de duas maneiras:
 				<ul>
+					Pode ser feito de duas maneiras:
 					<li>Manual</li>
 					<li>Iterativo</li>
 				</ul>
@@ -187,7 +195,7 @@ pre {
 					Tarefa 2.1:
 					<li>Deletar primeiro arquivo criado</li>
 					<li class="fragment">Deletar arquivo do git</li>
-					<li class="commit"></li>
+					<li class="fragment">Commit</li>
 				</ul>
 			</section>
 			<section>
@@ -203,11 +211,22 @@ pre {
 			</section>
 			<section>
 				<br><pre><code>touch .gitignore</code></pre>
+				<br><span class="fragment"></span>
 			</section>
 			<section>
 				Caso deseje ignorar um arquivo que já esteja commitado você precisa excluir o arquivo do git
 				<br><pre><code>git rm --cached file1.c</code></pre>
-				<br><span class="fragment">Cuidado, pois o comando git rm file1.c irá deletar o arquivo!!!</span>
+				<br><span class="fragment">Cuidado para não confundir com:</span>
+				<br><pre class="fragment"><code>git rm file1.c</code></pre>
+			</section>
+			<section>
+				<ul>
+					Tarefa 2.3:
+					<li class="fragment">Ignorar arquivos de compilação gerados pelo java</li>
+					<li class="fragment">Commit</li>
+					<li class="fragment">Ignore um arquivo criado na tarefa 2.1</li>
+					<li class="fragment">Commit</li>
+				</ul>
 			</section>
 		</section>
 		<section>
@@ -215,7 +234,41 @@ pre {
 				<h2>Branches</h2>
 			</section>
 			<section>
+				<ul>
+					Como o prório nome diz, podemos trabalhar com um sistema de "galhos"
+					<li>Fazer experimentos</li>
+					<li>Desenvolver multiplas coisas ao mesmo tempo</li>
+					<li>Tudo isso sem comprometer o código original</li>
+				</ul>
+			</section>
+			<section>
+				<section>
+					<ul>
+						Tarefa 3.1:
+						<li class="fragment">Criar uma nova branch e separar arquivos de estilo da tarefa 1</li>
+						<li class="fragment">Commit</li>
+					</ul>
+				</section>
+			</section>
+			<section>
+				<h2>Checkout</h2>
+			</section>
+			<section>
+				O comando checkout serve (entre outras coisas) para navegação entre branches.
+			</section>
+			<section>
 				<h2>Merge</h2>
+			</section>
+			<section>
+				O comando merge é usado para juntar branches quando a tarefa de uma branche foram finalizadas.
+				<br>E esse é um dos pontos fortes do git, em um merge, ele "sabe" quais partes de um arquivo deve sustituir por outro, de maneira automática.
+			</section>
+			<section>
+				<ul>
+					Tarefa 3.2
+					<li></li>
+					<li class="fragment">Fazer o merge da branch criada na branch master</li>
+				</ul>
 			</section>
 		</section>
 		<section>
@@ -223,15 +276,67 @@ pre {
 				<h2>Remote</h2>
 			</section>
 			<section>
+				Servem como espelhos para base de código <span class="fragment">, também poderiam ser chamados de centralizadores, porém, estamos lidando com um sistema descentralizado.</span>
+			</section>
+			<section>
 				<h3>Agredadores</h3>
 				<ul>
+					<br>Funcionam como redes socias
 					<li>Github</li>
 					<li>Gitlab</li>
 					<li>Bitbucket</li>
+					<li>Proprietário</li>
+				</ul>
+			</section>
+			<section>
+				<ul>
+					Tarefa 4.0:
+					<li class="fragment">Criar uma conta em algum deles (caso você não tenha)</li>
+					<li class="fragment">Criar um repositório no host elegido</li>
+					<li class="fragment">Adicionar esse repositório como remote origin para o repositório dos exercícios</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Push</h2>
+			</section>
+			<section>
+				Comando usado para enviar as alterações para servidores externos
+			</section>
+			<section>
+				<ul>
+					Tarefa 4.1:
+					<li class="fragment">Envie seu código para o remote criado</li>
+					<li class="fragment">Adicione um novo remote chamado slave</li>
+					<li class="fragment">Envie seu código para o slave</li>
 				</ul>
 			</section>
 			<section>
 				<h2>Clone</h2>
+			</section>
+			<section>
+				Usado para pegar repositórios de algum remote
+				<br>Pode ser usado tanto para repositórios públicos quanto para repositórios privados
+			</section>
+			<section>
+				<ul>
+					Tarefa 4.2:
+					<li class="fragment">Clone o repositório do seu colega ao lado</li>
+					<li class="fragment">Altere algo</li>
+					<li class="fragment">Commit</li>
+					<li class="fragment">Envie as alterações para o repositório origin</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Pull</h2>
+			</section>
+			<section>
+				Usado para pegar as alterações feitas em espelhos (qualquer máquina diferente da sua)
+			</section>
+			<section>
+				<ul>
+					Tarefa 4.3:
+					<li class="fragment">Pegue as alterações feitas no seu código pelo seu colega</li>
+				</ul>
 			</section>
 		</section>
 		<section>
