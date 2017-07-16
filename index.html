@@ -8,7 +8,7 @@
 </head>
 <body>
 <style media="screen">
-pre {
+pre *{
 	text-align: center;
 }
 </style>
@@ -26,45 +26,6 @@ pre {
 				<li>Commit</li>
 				<li>so on</li>
 			</ul>
-		</section>
-		<section>
-			<section>
-				<h2>Pra que serve?</h2>
-			</section>
-			<section>
-				<ul>
-					<li>Rastreamento do histórico</li>
-					<ul>
-						<li>Controlar versão (WOW)</li>
-						<li>Reverter alterações</li>
-					</ul>
-				</ul>
-			</section>
-			<section>
-				<ul>
-					<li>Descentralização</li>
-					<ul>
-						<li>Desenvolvimento paralelo</li>
-					</ul>
-				</ul>
-			</section>
-			<section>
-				<ul>
-					<li>Segurança</li>
-					<ul>
-						<li>Validar se seus arquivos são realmente seus</li>
-					</ul>
-				</ul>
-			</section>
-			<section>
-				<ul>
-					<li>Performance</li>
-					<ul>
-						<li>Não desperdiça espaço criando cópias</li>
-						<li>Compressão super otimizada</li>
-					</ul>
-				</ul>
-			</section>
 		</section>
 		<section>
 			<section>
@@ -103,6 +64,44 @@ pre {
 					<li class="fragment">Ele não vê os arquivos como arquivo, <span class="fragment">mas sim como um grande arquivo</span></li>
 				</ul>
 			</section>
+			<section>
+				<h2>Pra que serve?</h2>
+			</section>
+			<section>
+				<ul>
+					<li>Rastreamento do histórico</li>
+					<ul>
+						<li>Controlar versão (WOW)</li>
+						<li>Reverter alterações</li>
+					</ul>
+				</ul>
+			</section>
+			<section>
+				<ul>
+					<li>Descentralização</li>
+					<ul>
+						<li>Desenvolvimento paralelo</li>
+					</ul>
+				</ul>
+			</section>
+			<section>
+				<ul>
+					<li>Segurança</li>
+					<ul>
+						<li>Validar se seus arquivos são realmente seus</li>
+					</ul>
+				</ul>
+			</section>
+			<section>
+				<ul>
+					<li>Performance</li>
+					<ul>
+						<li>Não desperdiça espaço criando cópias</li>
+						<li>Compressão super otimizada</li>
+					</ul>
+				</ul>
+			</section>
+
 		</section>
 		<section>
 			<section>
@@ -144,7 +143,7 @@ pre {
 				<img src="img/commit.svg">
 			</section>
 			<section>
-				Registrar uma (várias alterações), podemos pensar em um commit como sendo o checkpoint do seu jogo favorito.
+				Server para registrar alterações, podemos pensar em um commit como sendo o checkpoint do seu jogo favorito.
 				<span class="fragment">Mas antes, precisamos selecionar o que queremos salvar.</span>
 			</section>
 			<section>
@@ -155,6 +154,9 @@ pre {
 					<li>Usado para verificar qual o status dos arquivos de acordo com os arquuivos originais</li>
 					<li>Serve para que saibamos quais arquivos foram alterados/criados/removidos.</li>
 				</ul>
+			</section>
+			<section>
+				<br><pre><code>git status</code></pre>
 			</section>
 			<section>
 				<h2>Add</h2>
@@ -281,14 +283,12 @@ pre {
 				<br>E esse é um dos pontos fortes do git, em um merge, ele "sabe" quais partes de um arquivo deve sustituir por outro, de maneira automática.
 			</section>
 			<section>
-				<br>Visualmente
-				<img src="img/merge.svg">
+				<img src="img/merge.svg" height="600px">
 			</section>
 			<section>
 				<ul>
 					Tarefa 3.2
-					<li></li>
-					<li class="fragment">Fazer o merge da branch criada na branch master</li>
+					<li>Fazer o merge da branch criada na branch master</li>
 				</ul>
 			</section>
 		</section>
@@ -328,6 +328,9 @@ pre {
 				Comando usado para enviar as alterações para servidores externos
 			</section>
 			<section>
+				<pre><code>git push {remote} {branch}</code></pre>
+			</section>
+			<section>
 				<ul>
 					Tarefa 4.1:
 					<li class="fragment">Envie seu código para o remote criado</li>
@@ -341,6 +344,9 @@ pre {
 			<section>
 				Usado para pegar repositórios de algum remote
 				<br>Pode ser usado tanto para repositórios públicos quanto para repositórios privados
+			</section>
+			<section>
+				<pre><code>git clone {url}</code></pre>
 			</section>
 			<section>
 				<ul>
@@ -358,6 +364,9 @@ pre {
 				Usado para pegar as alterações feitas em espelhos (qualquer máquina diferente da sua)
 			</section>
 			<section>
+				<pre><code>git pull {remote} {branch}</code></pre>
+			</section>
+			<section>
 				<ul>
 					Tarefa 4.3:
 					<li class="fragment">Pegue as alterações feitas no seu código pelo seu colega</li>
@@ -367,6 +376,24 @@ pre {
 		<section>
 			<section>
 				<h2>Logs</h2>
+			</section>
+			<section>
+				Serve para visualização de onde e quando aconteceram as coisas
+			</section>
+			<section>
+				<ul>
+					usado com vários formatos:
+					<li>oneline</li>
+					<li>diff</li>
+					<li>shortlog</li>
+					<li>graph</li>
+					e de várias maneiras
+					<li>por quantidade</li>
+					<li>por data</li>
+					<li>por autor</li>
+					<li>por arquivo</li>
+					<li>por intervalo de commits</li>
+				</ul>
 			</section>
 			<section>
 				<h2>Blame</h2>
