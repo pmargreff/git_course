@@ -23,8 +23,14 @@ pre *{
 		<section>
 			<ul>
 				Indíce:
+				<li>O que é?</li>
+				<li>Configurando</li>
 				<li>Commit</li>
-				<li>so on</li>
+				<li>Branches</li>
+				<li>Remote</li>
+				<li>Logs</li>
+				<li>Desfazendo as coisas</li>
+				<li>Referências</li>
 			</ul>
 		</section>
 		<section>
@@ -54,14 +60,15 @@ pre *{
 			</section>
 			<section>
 				<ul>
+					Curiosidades
 					<li>Primeiro commit no primeiro dia de desenvolvimento <span class="fragment">no próprio projeto</span></li>
-					<li class="fragment">Primeira versão em 7 de abril de 2005</li>
+					<li>Primeira versão em 7 de abril de 2005</li>
 				</ul>
 			</section>
 			<section>
 				<ul>
 					Mas qual a diferença entre o git e os outros Sistemas de controles?
-					<li class="fragment">Ele não vê os arquivos como arquivo, <span class="fragment">mas sim como um grande arquivo</span></li>
+					<li class="fragment">Ele não vê os arquivos como arquivos, <span class="fragment">mas sim como um grande arquivo</span></li>
 				</ul>
 			</section>
 			<section>
@@ -81,6 +88,7 @@ pre *{
 					<li>Descentralização</li>
 					<ul>
 						<li>Desenvolvimento paralelo</li>
+						<li>Redundâncias</li>
 					</ul>
 				</ul>
 			</section>
@@ -97,33 +105,32 @@ pre *{
 					<li>Performance</li>
 					<ul>
 						<li>Não desperdiça espaço criando cópias</li>
-						<li>Compressão super otimizada</li>
+						<li>Compressão de dados</li>
 					</ul>
 				</ul>
 			</section>
-
 		</section>
 		<section>
 			<section>
 				<h2>Configurando</h2>
 			</section>
 			<section>
+				<span>Atributos básicos (obrigatórios):</span>
+				<br><pre><code>git config --{nível} user.name "Batman"</code></pre>
+				<br><pre><code>git config --{nível} user.email batman@hotmail.com </code></pre>
+			</section>
+			<section>
 				<ul>
 					<span>Níveis:</span>
-					<li>system - todos usuários do sistema</li>
-					<li>global - usuário atual</li>
-					<li>local - válida apenas para o repositório atual</li>
-					<li>file - configurações e comandos a nível de arquivo</li>
+					<li>system - todos repositórios, todos usuários</li>
+					<li>global - todos repositórios, usuário atual</li>
+					<li>local - repositório atual, usuário atual</li>
+					<li>file - arquivos específicos</li>
 				</ul>
 			</section>
 			<section>
-				<span>Atributos básicos (obrigatórios):</span>
-				<br><pre><code>git config --local user.name "Batman"</code></pre>
-				<br><pre><code>git config --local user.email batman@hotmail.com </code></pre>
-			</section>
-			<section>
-				<span>Outros atributos:</span>
-				<br><pre><code>git config --local --unset user.name</code></pre>
+				<span>Desfazendo:</span>
+				<br><pre><code>git config --{nível} --unset {propriedade}</code></pre>
 			</section>
 			<section>
 				<ul>
@@ -143,294 +150,314 @@ pre *{
 				<img src="img/commit.svg">
 			</section>
 			<section>
-				Server para registrar alterações, podemos pensar em um commit como sendo o checkpoint do seu jogo favorito.
-				<span class="fragment">Mas antes, precisamos selecionar o que queremos salvar.</span>
+				Serve para registrar alterações, podemos pensar em um commit como sendo o checkpoint do seu jogo favorito.
+				<br><span class="fragment">Mas antes, precisamos selecionar o que queremos salvar.</span>
 			</section>
 			<section>
-				<h2>Status</h2>
+				Staging Area
 			</section>
 			<section>
-				<ul>
-					<li>Usado para verificar qual o status dos arquivos de acordo com os arquuivos originais</li>
-					<li>Serve para que saibamos quais arquivos foram alterados/criados/removidos.</li>
-				</ul>
-			</section>
-			<section>
-				<br><pre><code>git status</code></pre>
-			</section>
-			<section>
-				<h2>Add</h2>
-			</section>
-			<section>
-				<ul>
-					Pode ser feito de duas maneiras:
-					<li>Manual</li>
-					<li>Iterativo</li>
-				</ul>
-			</section>
-			<section>
-				Manual
-				<br>Por arquivo
-				<br><pre><code>git add file1.c file2.c</code></pre>
-				<br>Todos arquivos - novos/alterações/exclusões
-				<br><pre><code>git add .</code></pre>
-			</section>
-			<section>
-				Iterativo
-				<br><pre><code>git add -i</code></pre>
-			</section>
-			<section>
-				<br>Commit
-				<br><pre><code>git commit -m "My awesome feature"</code></pre>
-				<br>ou
-				<br><pre><code>git commit </code></pre>
-			</section>
-			<section>
-				<h2>Delete</h2>
-			</section>
-			<section>
-				<br><pre><code>git rm file1.c file2.c</code></pre>
-			</section>
-			<section>
-				<ul>
-					Tarefa 2:
-					<li>Criar um ou mais arquivos</li>
-					<li class="fragment">Adicionar de maneira manual</li>
-					<li class="fragment">Commit</li>
-					<li class="fragment">Criar outro arquivo</li>
-					<li class="fragment">Adicionar de maneira iterativa</li>
-					<li class="fragment">Commit</li>
-				</ul>
-			</section>
-			<section>
-				<ul>
-					Tarefa 2.1:
-					<li>Deletar primeiro arquivo criado</li>
-					<li class="fragment">Deletar arquivo do git</li>
-					<li class="fragment">Commit</li>
-				</ul>
-			</section>
-			<section>
-				<h2>gitignore</h2>
-			</section>
-			<section>
-				<ul>
-					Mas o que fazer com arquivos que eu quero ignorar?
-					<li>Arquivos gerados de compilação</li>
-					<li>Arquivos de configuração</li>
-					<li>Logs</li>
-				</ul>
-			</section>
-			<section>
-				<br><pre><code>touch .gitignore</code></pre>
-				<br><span class="fragment"></span>
-			</section>
-			<section>
-				Caso deseje ignorar um arquivo que já esteja commitado você precisa excluir o arquivo do git
-				<br><pre><code>git rm --cached file1.c</code></pre>
-				<br><span class="fragment">Cuidado para não confundir com:</span>
-				<br><pre class="fragment"><code>git rm file1.c</code></pre>
-			</section>
-			<section>
-				<ul>
-					Tarefa 2.3:
-					<li class="fragment">Ignorar arquivos de compilação gerados pelo java</li>
-					<li class="fragment">Commit</li>
-					<li class="fragment">Ignore um arquivo criado na tarefa 2.1</li>
-					<li class="fragment">Commit</li>
-				</ul>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>Branches</h2>
-			</section>
-			<section>
-				<ul>
-					Como o prório nome diz, podemos trabalhar com um sistema de "galhos"
-					<li>Fazer experimentos</li>
-					<li>Desenvolver multiplas coisas ao mesmo tempo</li>
-					<li>Tudo isso sem comprometer o código original</li>
-				</ul>
-			</section>
-			<section>
-				<br>Visualmente
-				<img src="img/branches.svg">
-			</section>
-			<section>
-				<section>
-					<ul>
-						Tarefa 3.1:
-						<li class="fragment">Criar uma nova branch e separar arquivos de estilo da tarefa 1</li>
-						<li class="fragment">Commit</li>
-					</ul>
-				</section>
-			</section>
-			<section>
-				<h2>Checkout</h2>
-			</section>
-			<section>
-				O comando checkout serve (entre outras coisas) para navegação entre branches.
-			</section>
-			<section>
-				<img src="img/checkout.svg" height="600px">
-			</section>
-			<section>
-				<h2>Merge</h2>
-			</section>
-			<section>
-				O comando merge é usado para juntar branches quando a tarefa de uma branche foram finalizadas.
-				<br>E esse é um dos pontos fortes do git, em um merge, ele "sabe" quais partes de um arquivo deve sustituir por outro, de maneira automática.
-			</section>
-			<section>
-				<img src="img/merge.svg" height="600px">
-			</section>
-			<section>
-				<ul>
-					Tarefa 3.2
-					<li>Fazer o merge da branch criada na branch master</li>
-				</ul>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>Remote</h2>
-			</section>
-			<section>
-				Servem como espelhos para base de código <span class="fragment">, também poderiam ser chamados de centralizadores, porém, estamos lidando com um sistema descentralizado.</span>
-			</section>
-			<section>
-				<br>Visualmente
-				<img src="img/remote.svg">
-			</section>
-			<section>
-				<h3>Agredadores</h3>
-				<ul>
-					<br>Funcionam como redes socias
-					<li>Github</li>
-					<li>Gitlab</li>
-					<li>Bitbucket</li>
-					<li>Proprietário</li>
-				</ul>
-			</section>
-			<section>
-				<ul>
-					Tarefa 4.0:
-					<li class="fragment">Criar uma conta em algum deles (caso você não tenha)</li>
-					<li class="fragment">Criar um repositório no host elegido</li>
-					<li class="fragment">Adicionar esse repositório como remote origin para o repositório dos exercícios</li>
-				</ul>
-			</section>
-			<section>
-				<h2>Push</h2>
-			</section>
-			<section>
-				Comando usado para enviar as alterações para servidores externos
-			</section>
-			<section>
-				<pre><code>git push {remote} {branch}</code></pre>
-			</section>
-			<section>
-				<ul>
-					Tarefa 4.1:
-					<li class="fragment">Envie seu código para o remote criado</li>
-					<li class="fragment">Adicione um novo remote chamado slave</li>
-					<li class="fragment">Envie seu código para o slave</li>
-				</ul>
-			</section>
-			<section>
-				<h2>Clone</h2>
-			</section>
-			<section>
-				Usado para pegar repositórios de algum remote
-				<br>Pode ser usado tanto para repositórios públicos quanto para repositórios privados
-			</section>
-			<section>
-				<pre><code>git clone {url}</code></pre>
-			</section>
-			<section>
-				<ul>
-					Tarefa 4.2:
-					<li class="fragment">Clone o repositório do seu colega ao lado</li>
-					<li class="fragment">Altere algo</li>
-					<li class="fragment">Commit</li>
-					<li class="fragment">Envie as alterações para o repositório origin</li>
-				</ul>
-			</section>
-			<section>
-				<h2>Pull</h2>
-			</section>
-			<section>
-				Usado para pegar as alterações feitas em espelhos (qualquer máquina diferente da sua)
-			</section>
-			<section>
-				<pre><code>git pull {remote} {branch}</code></pre>
-			</section>
-			<section>
-				<ul>
-					Tarefa 4.3:
-					<li class="fragment">Pegue as alterações feitas no seu código pelo seu colega</li>
-				</ul>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>Logs</h2>
-			</section>
-			<section>
-				Serve para visualização de onde e quando aconteceram as coisas
-			</section>
-			<section>
-				<ul>
-					usado com vários formatos:
-					<li>oneline</li>
-					<li>diff</li>
-					<li>shortlog</li>
-					<li>graph</li>
-					e de várias maneiras
-					<li>por quantidade</li>
-					<li>por data</li>
-					<li>por autor</li>
-					<li>por arquivo</li>
-					<li>por intervalo de commits</li>
-				</ul>
-			</section>
-			<section>
-				<h2>Blame</h2>
-			</section>
-		</section>
-		<section>
-			<section>
-				<h2>Desfazendo as coisas</h2>
-			</section>
-			<section>
-				Revert
-			</section>
-			<section>
-				Desfazendo os commits deixando no histórico
-			</section>
-			<section>
-				<br>Visualmente
-				<img src="img/revert.svg">
-			</section>
-			<section>
-				Reset
-			</section>
-			<section>
-				Desfazendo as coisas e apagando o histórico
-			</section>
-			<section>
-				<br>Visualmente
-				<img src="img/reset.svg">
-			</section>
-		</section>
-		<section>
-			<h3>Referências</h3>
-			<ul>
-				<li></li>
+				<li>Serve para que saibamos quais arquivos foram alterados/criados/removidos.</li>
+				<li>Nos mostra qual o status atual de nossos arquivos em relação ao commit pai.</li>
+				<li class="fragment">Com exceçao do primeiro commit que não possui pai</li>
 			</ul>
 		</section>
-	</div>
+		<section>
+			<br><pre><code>git status</code></pre>
+		</section>
+		<section>
+			<h2>Add</h2>
+		</section>
+		<section>
+			<ul>
+				Pode ser feito de duas maneiras:
+				<li>Manual</li>
+				<li>Iterativo</li>
+			</ul>
+		</section>
+		<section>
+			Manual
+			<br>Por arquivo
+			<br><pre><code>git add {files}</code></pre>
+			<br>Todos arquivos - novos/alterações/exclusões
+			<br><pre><code>git add .</code></pre>
+		</section>
+		<section>
+			Iterativo
+			<br><pre><code>git add -i</code></pre>
+		</section>
+		<section>
+			<br>Commit
+			<br><pre><code>git commit -m "My awesome feature"</code></pre>
+			<br>ou
+			<br><pre><code>git commit </code></pre>
+		</section>
+		<section>
+			<h2>Delete</h2>
+		</section>
+		<section>
+			<br><pre><code>git rm {files}</code></pre>
+		</section>
+		<section>
+			<ul>
+				Tarefa 2.0:
+				<li>Criar um ou mais arquivos</li>
+				<li class="fragment">Adicionar de maneira manual</li>
+				<li class="fragment">Commit</li>
+				<li class="fragment">Criar outro arquivo</li>
+				<li class="fragment">Adicionar de maneira iterativa</li>
+				<li class="fragment">Commit</li>
+			</ul>
+		</section>
+		<section>
+			<ul>
+				Tarefa 2.1:
+				<li>Deletar primeiro arquivo criado</li>
+				<li class="fragment">Deletar arquivo do git</li>
+				<li class="fragment">Commit</li>
+			</ul>
+		</section>
+		<section>
+			<h2>gitignore</h2>
+		</section>
+		<section>
+			<ul>
+				Mas o que fazer com arquivos que eu quero ignorar?
+				<li>Arquivos gerados de compilação</li>
+				<li>Arquivos de configuração</li>
+				<li>Logs</li>
+			</ul>
+		</section>
+		<section>
+			<br><pre><code>touch .gitignore</code></pre>
+			<br><span class="fragment"></span>
+		</section>
+		<section>
+			Caso deseje ignorar um arquivo que já esteja commitado você precisa excluir o arquivo do git
+			<br><pre><code>git rm --cached file1.c</code></pre>
+			<br><span class="fragment">Cuidado para não confundir com:</span>
+			<br><pre class="fragment"><code>git rm file1.c</code></pre>
+		</section>
+		<section>
+			<ul>
+				Tarefa 2.3:
+				<li class="fragment">Ignorar arquivos de compilação gerados pelo java</li>
+				<li class="fragment">Commit</li>
+				<li class="fragment">Ignore um arquivo criado na tarefa 2.1</li>
+				<li class="fragment">Commit</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h2>Branches</h2>
+		</section>
+		<section>
+			<ul>
+				Como o prório nome diz, podemos trabalhar com um sistema de "galhos"
+				<li>Fazer experimentos</li>
+				<li>Desenvolver multiplas coisas ao mesmo tempo</li>
+				<li>Tudo isso sem comprometer o código original</li>
+			</ul>
+		</section>
+		<section>
+			<br>Visualmente
+			<img src="img/branches.svg">
+		</section>
+		<section>
+			<ul>
+				Tarefa 3.1:
+				<li class="fragment">Criar uma nova branch e separar arquivos de estilo da tarefa 1</li>
+				<li class="fragment">Commit</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Checkout</h2>
+		</section>
+		<section>
+			O comando checkout serve (entre outras coisas) para navegação entre branches.
+		</section>
+		<section>
+			<img src="img/checkout.svg" height="600px">
+		</section>
+		<section>
+			<h2>Merge</h2>
+		</section>
+		<section>
+			O comando merge é usado para juntar branches quando a tarefa de uma branche foram finalizadas.
+			<br>E esse é um dos pontos fortes do git, em um merge, ele "sabe" quais partes de um arquivo deve sustituir por outro, de maneira automática.
+		</section>
+		<section>
+			<img src="img/merge.svg" height="600px">
+		</section>
+		<section>
+			<ul>
+				Tarefa 3.2
+				<li>Fazer o merge da branch criada na branch master</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h2>Remote</h2>
+		</section>
+		<section>
+			Servem como espelhos para base de código <span class="fragment">, também poderiam ser chamados de centralizadores, porém, estamos lidando com um sistema descentralizado.</span>
+		</section>
+		<section>
+			<br>Visualmente
+			<img src="img/remote.svg">
+		</section>
+		<section>
+			<h3>Agredadores</h3>
+			<ul>
+				<br>Funcionam como redes socias
+				<li>Serve para você compartilhar código</li>
+				<ul>
+					<li>De maneira pública - open source</li>
+					<li>De maneira privade - proprietário</li>
+				</ul>
+				<li>Backup</li>
+				<li>Espelhos</li>
+			</ul>
+		</section>
+		<section>
+			<ul>
+				Mais famosos
+				<li>Github</li>
+				<li>Gitlab</li>
+				<li>Bitbucket</li>
+				<li class="fragment">Proprietário</li>
+			</ul>
+			<br>
+			<ul>
+				<br><img src="img/github.png" height="150px" width="150px"></li>
+				<img src="img/gitlab.svg" height="150px" width="150px"></li>
+				<img src="img/bitbucket.png" height="150px" width="120px"></li>
+			</ul>
+		</section>
+		<section>
+			<pre><code>git remote add {alias} {url}</code></pre>
+		</section>
+		<section>
+			<ul>
+				Tarefa 4.0:
+				<li class="fragment">Criar uma conta em algum deles (caso você não tenha)</li>
+				<li class="fragment">Criar um repositório no host elegido</li>
+				<li class="fragment">Adicionar esse repositório como remote origin para o repositório dos exercícios</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Push</h2>
+		</section>
+		<section>
+			Comando usado para enviar as alterações para servidores externos
+		</section>
+		<section>
+			<pre><code>git push {remote} {branch}</code></pre>
+		</section>
+		<section>
+			<ul>
+				Tarefa 4.1:
+				<li class="fragment">Envie seu código para o remote criado</li>
+				<li class="fragment">Adicione um novo remote chamado slave</li>
+				<li class="fragment">Envie seu código para o slave</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Clone</h2>
+		</section>
+		<section>
+			Usado para pegar repositórios de algum remote
+			<br>Pode ser usado tanto para repositórios públicos quanto para repositórios privados
+		</section>
+		<section>
+			<pre><code>git clone {url}</code></pre>
+		</section>
+		<section>
+			<ul>
+				Tarefa 4.2:
+				<li class="fragment">Clone o repositório do seu colega ao lado</li>
+				<li class="fragment">Altere algo</li>
+				<li class="fragment">Commit</li>
+				<li class="fragment">Envie as alterações para o repositório origin</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Pull</h2>
+		</section>
+		<section>
+			Usado para pegar as alterações feitas em espelhos (qualquer máquina diferente da sua)
+		</section>
+		<section>
+			<pre><code>git pull {remote} {branch}</code></pre>
+		</section>
+		<section>
+			<ul>
+				Tarefa 4.3:
+				<li class="fragment">Pegue as alterações feitas no seu código pelo seu colega</li>
+			</ul>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h2>Logs</h2>
+		</section>
+		<section>
+			Serve para visualização de onde e quando aconteceram as coisas
+		</section>
+		<section>
+			<ul>
+				usado com vários formatos:
+				<li>oneline</li>
+				<li>diff</li>
+				<li>shortlog</li>
+				<li>graph</li>
+				e de várias maneiras
+				<li>por quantidade</li>
+				<li>por data</li>
+				<li>por autor</li>
+				<li>por arquivo</li>
+				<li>por intervalo de commits</li>
+			</ul>
+		</section>
+		<section>
+			<h2>Blame</h2>
+		</section>
+	</section>
+	<section>
+		<section>
+			<h2>Desfazendo as coisas</h2>
+		</section>
+		<section>
+			Revert
+		</section>
+		<section>
+			Desfazendo os commits deixando no histórico
+		</section>
+		<section>
+			<br>Visualmente
+			<img src="img/revert.svg">
+		</section>
+		<section>
+			Reset
+		</section>
+		<section>
+			Desfazendo as coisas e apagando o histórico
+		</section>
+		<section>
+			<br>Visualmente
+			<img src="img/reset.svg">
+		</section>
+	</section>
+	<section>
+		<h3>Referências</h3>
+		<ul>
+			<li><a href="https://www.atlassian.com/git/tutorials">Attlasian tutorials</a></li>
+			<li><a href="https://help.github.com/">Github help</a></li>
+		</ul>
+	</section>
+</div>
 </div>
 <script>
 Reveal.initialize({
