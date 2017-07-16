@@ -23,18 +23,21 @@ pre *{
 		<section>
 			<ul>
 				Indíce:
-				<li>O que é?</li>
-				<li>Configurando</li>
-				<li>Commit</li>
-				<li>Branches</li>
-				<li>Remote</li>
-				<li>Logs</li>
-				<li>Desfazendo as coisas</li>
-				<li>Referências</li>
+				<li><a href="#/what-is">O que é?</a></li>
+				<li><a href="#/config">Configurando</a></li>
+				<li><a href="#/commit">Commit</a></li>
+				<li><a href="#/branches">Branches</a></li>
+				<li><a href="#/remote">Remote</a></li>
+				<li><a href="#/logs">Logs</a></li>
+				<li><a href="#/undo">Desfazendo as coisas</a></li>
+				<li><a href="#/referencies">Referências</a></li>
+				<ul>
+					<li><a href="atlassian-git-cheatsheet.pdf" target="_blank">Cola com comandos básicos - GIT</a></li>
+				</ul>
 			</ul>
 		</section>
 		<section>
-			<section>
+			<section id="what-is">
 				<h2>O que é?</h2>
 			</section>
 			<section>
@@ -53,6 +56,7 @@ pre *{
 			</section>
 			<section>
 				<ul>
+					Porém:
 					<li>lentas</li>
 					<li>ocupavam espaço</li>
 					<li>centralizadas</li>
@@ -61,7 +65,7 @@ pre *{
 			<section>
 				<ul>
 					Curiosidades
-					<li>Primeiro commit no primeiro dia de desenvolvimento <span class="fragment">no próprio projeto</span></li>
+					<li>Primeiro commit no primeiro dia de desenvolvimento <span class="fragment">no próprio git</span></li>
 					<li>Primeira versão em 7 de abril de 2005</li>
 				</ul>
 			</section>
@@ -111,7 +115,7 @@ pre *{
 			</section>
 		</section>
 		<section>
-			<section>
+			<section id="config">
 				<h2>Configurando</h2>
 			</section>
 			<section>
@@ -142,7 +146,7 @@ pre *{
 			</section>
 		</section>
 		<section>
-			<section>
+			<section id="commit">
 				<h2>Commit</h2>
 			</section>
 			<section>
@@ -163,7 +167,10 @@ pre *{
 			</ul>
 		</section>
 		<section>
+			<br>Mostra <b>quais</b> arquivos foram alterados
 			<br><pre><code>git status</code></pre>
+			<br>Mostra <b>o que</b> foi alterado nestes arquivos
+			<br><pre><code>git diff</code></pre>
 		</section>
 		<section>
 			<h2>Add</h2>
@@ -249,7 +256,7 @@ pre *{
 		</section>
 	</section>
 	<section>
-		<section>
+		<section id="branches">
 			<h2>Branches</h2>
 		</section>
 		<section>
@@ -298,7 +305,7 @@ pre *{
 		</section>
 	</section>
 	<section>
-		<section>
+		<section id="remote">
 			<h2>Remote</h2>
 		</section>
 		<section>
@@ -337,7 +344,15 @@ pre *{
 			</ul>
 		</section>
 		<section>
-			<pre><code>git remote add {alias} {url}</code></pre>
+			<ul>
+				Por que ter um?
+				<li class="fragment">Para as pessoas saberem que você existe</li>
+				<li class="fragment">Para as empresas saberem que você existe</li>
+				<li class="fragment">Para proteger você de você mesmo</li>
+			</ul>
+		</section>
+		<section>
+			<pre><code>git remote add {remote_alias} {url}</code></pre>
 		</section>
 		<section>
 			<ul>
@@ -354,7 +369,7 @@ pre *{
 			Comando usado para enviar as alterações para servidores externos
 		</section>
 		<section>
-			<pre><code>git push {remote} {branch}</code></pre>
+			<pre><code>git push {remote_alias} {branch}</code></pre>
 		</section>
 		<section>
 			<ul>
@@ -390,7 +405,7 @@ pre *{
 			Usado para pegar as alterações feitas em espelhos (qualquer máquina diferente da sua)
 		</section>
 		<section>
-			<pre><code>git pull {remote} {branch}</code></pre>
+			<pre><code>git pull {remote_alias} {branch}</code></pre>
 		</section>
 		<section>
 			<ul>
@@ -400,7 +415,7 @@ pre *{
 		</section>
 	</section>
 	<section>
-		<section>
+		<section id="logs">
 			<h2>Logs</h2>
 		</section>
 		<section>
@@ -408,25 +423,51 @@ pre *{
 		</section>
 		<section>
 			<ul>
-				usado com vários formatos:
+				Usado com vários formatos:
 				<li>oneline</li>
 				<li>diff</li>
 				<li>shortlog</li>
 				<li>graph</li>
-				e de várias maneiras
-				<li>por quantidade</li>
-				<li>por data</li>
-				<li>por autor</li>
-				<li>por arquivo</li>
-				<li>por intervalo de commits</li>
 			</ul>
 		</section>
 		<section>
+			<ul>
+				De várias maneiras:
+				<li>quantidade</li>
+				<li>data</li>
+				<li>autor</li>
+				<li>arquivo</li>
+				<li>intervalo de commits</li>
+			</ul>
+		</section>
+		<section>
+			Comando principal
+			<br><pre><code>git log {file}</code></pre>
+			<br>Mostra hash, autor, data e mensagem
+		</section>
+		<section>
+			Oneline
+			<br><pre><code>git log --oneline</code></pre>
+			<br>Mostra hash (abreviado) e mensagem
+			<br><pre><code>git log --oneline {branch1}..{branch2}</code></pre>
+		</section>
+		<section>
+			Stat
+			<br><pre><code>git log --stat</code></pre>
+			<br>Mostra hash (abreviado), mensagem e quais arquivos foram alterados
+		</section>
+		<section>
+			Graph
+			<br><pre><code>git log --graph</code></pre>
+			<br><pre><code>git log --graph --oneline</code></pre>
+		</section>
+		<section>
 			<h2>Blame</h2>
+			<br><pre><code>git blame {file} -L {initial_line, final_line}</code></pre>
 		</section>
 	</section>
 	<section>
-		<section>
+		<section id="undo">
 			<h2>Desfazendo as coisas</h2>
 		</section>
 		<section>
@@ -450,7 +491,7 @@ pre *{
 			<img src="img/reset.svg">
 		</section>
 	</section>
-	<section>
+	<section id="referencies">
 		<h3>Referências</h3>
 		<ul>
 			<li><a href="https://www.atlassian.com/git/tutorials">Attlasian tutorials</a></li>
