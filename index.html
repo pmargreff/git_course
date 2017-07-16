@@ -3,21 +3,16 @@
 	<title>Git it done</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.min.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/white.css">
+	<link rel="stylesheet" href="style.css">
 	<script src="https://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.min.js"></script>
 	<meta charset="utf-8">
 </head>
 <body>
-<style media="screen">
-pre *{
-	text-align: center;
-}
-</style>
 <div class="reveal">
 	<div class="slides">
 		<section>
-			<h1>Get it done</h1>
+			<h1>Git - Crash course</h1>
 			<h2>Pablo Margreff</h2>
-			<h4>Nobody - mas eu sei um pouco de git</h4>
 			<h4>pmargreff@gmail.com | github.com/pmargreff</h4>
 		</section>
 		<section>
@@ -192,18 +187,13 @@ pre *{
 		<section>
 			Iterativo
 			<br><pre><code>git add -i</code></pre>
+			<br>Extremamente útil pra quando se tem muitos arquivos, mas nem todos deverão ser inclusos
 		</section>
 		<section>
 			<br>Commit
 			<br><pre><code>git commit -m "My awesome feature"</code></pre>
 			<br>ou
 			<br><pre><code>git commit </code></pre>
-		</section>
-		<section>
-			<h2>Delete</h2>
-		</section>
-		<section>
-			<br><pre><code>git rm {files}</code></pre>
 		</section>
 		<section>
 			<ul>
@@ -215,6 +205,12 @@ pre *{
 				<li class="fragment">Adicionar de maneira iterativa</li>
 				<li class="fragment">Commit</li>
 			</ul>
+		</section>
+		<section>
+			<h2>Delete</h2>
+		</section>
+		<section>
+			<br><pre><code>git rm {files}</code></pre>
 		</section>
 		<section>
 			<ul>
@@ -248,9 +244,10 @@ pre *{
 		<section>
 			<ul>
 				Tarefa 2.3:
-				<li class="fragment">Ignorar arquivos de compilação gerados pelo java</li>
+				<li>Ignorar o arquivo log.txt</li>
 				<li class="fragment">Commit</li>
-				<li class="fragment">Ignore um arquivo criado na tarefa 2.1</li>
+				<li class="fragment">Criar arquivo log.txt para validação</li>
+				<li class="fragment">Ignore um dos arquivos criados na tarefa 2.0</li>
 				<li class="fragment">Commit</li>
 			</ul>
 		</section>
@@ -319,7 +316,7 @@ pre *{
 			<h3>Agredadores</h3>
 			<ul>
 				<br>Funcionam como redes socias
-				<li>Serve para você compartilhar código</li>
+				<li>Compartilhamento de código</li>
 				<ul>
 					<li>De maneira pública - open source</li>
 					<li>De maneira privade - proprietário</li>
@@ -374,9 +371,9 @@ pre *{
 		<section>
 			<ul>
 				Tarefa 4.1:
-				<li class="fragment">Envie seu código para o remote criado</li>
-				<li class="fragment">Adicione um novo remote chamado slave</li>
-				<li class="fragment">Envie seu código para o slave</li>
+				<li class="fragment">Envie seu código para o origin</li>
+				<li class="fragment">Adicione um novo remote chamado mirror</li>
+				<li class="fragment">Envie seu código para o mirror</li>
 			</ul>
 		</section>
 		<section>
@@ -395,7 +392,9 @@ pre *{
 				<li class="fragment">Clone o repositório do seu colega ao lado</li>
 				<li class="fragment">Altere algo</li>
 				<li class="fragment">Commit</li>
-				<li class="fragment">Envie as alterações para o repositório origin</li>
+				<li class="fragment">Envie as alterações para o seu colega</li>
+				<li class="fragment">OPS, Peça para seu colegue lhe conceder permissões necessárias</li>
+				<li class="fragment">Tente novamente</li>
 			</ul>
 		</section>
 		<section>
@@ -465,6 +464,21 @@ pre *{
 			<h2>Blame</h2>
 			<br><pre><code>git blame {file} -L {initial_line, final_line}</code></pre>
 		</section>
+		<section>
+			<h2>Diff</h2>
+		</section>
+		<section>
+			Indo um pouco além no comando diff podemos usa-lo para exibir mudanças entre commits
+			<br><pre><code></code></pre>
+		</section>
+		<section>
+			<ul>
+				Tarefa 5.0
+				<li>Exiba os arquivos alterados no último commit</li>
+				<li>Exiba o que foi alterado nos arquivos no último commit</li>
+				<li>Encontre as alterações feitas pelo seu colega no seu código através do git blame</li>
+			</ul>
+		</section>
 	</section>
 	<section>
 		<section id="undo">
@@ -474,21 +488,44 @@ pre *{
 			Revert
 		</section>
 		<section>
-			Desfazendo os commits deixando no histórico
+			A maneira segura de refazer as coisas, reverte as alteraçãos feitas em um commit, ou em um intervalo
 		</section>
 		<section>
 			<br>Visualmente
 			<img src="img/revert.svg">
 		</section>
 		<section>
+			Desfaz um commit
+			<br><pre><code>git revert {hash}</code></pre>
+			<br>Desfaz todos commits de um intervalo
+			<br><pre><code>git revert {hash_initial}..{hash_final}</code></pre>
+			<br>Do commit mais antigo para o mais recente
+		</section>
+		<section>
 			Reset
 		</section>
 		<section>
-			Desfazendo as coisas e apagando o histórico
+			A maneira não tão segura de desfazer algo, volta para o momento antes do commit, deixando as alterações na área de staging.
 		</section>
 		<section>
 			<br>Visualmente
 			<img src="img/reset.svg">
+		</section>
+		<section>
+			<pre><code>git reset {commit}</code></pre>
+		</section>
+		<section>
+			Pode também ser feito de maneira agressiva<span class="fragment">, isso significa dizer que tudo que veio depois ainda não existe</span>
+		</section>
+		<section>
+			<pre><code>git reset --hard {commit}</code></pre>
+		</section>
+		<section>
+			<ul>
+				Tarefa 6.0
+				<li>Reverta as alterações feitas pelo seu colega</li>
+				<li>Exclua a sua reversão</li>
+			</ul>
 		</section>
 	</section>
 	<section id="referencies">
