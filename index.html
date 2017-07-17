@@ -132,11 +132,15 @@
 				<br><pre><code>git config --{nível} --unset {propriedade}</code></pre>
 			</section>
 			<section>
+				Criando todas estruturas necessárias para usar git:
+				<br><pre><code>git init</code></pre>
+			</section>
+			<section>
 				<ul>
 					Tarefa 1:
 					<li class="fragment">Criar um repositório</li>
-					<li class="fragment">Configurações básicas (a nível de repositório)</li>
 					<li class="fragment">Iniciar git</li>
+					<li class="fragment">Configurações básicas (a nível de repositório)</li>
 				</ul>
 			</section>
 		</section>
@@ -269,10 +273,15 @@
 			<img src="img/branches.svg">
 		</section>
 		<section>
+			Criar uma nova branch
+			<br><pre><code>git branch {branch_name}</code></pre>
+			Deletar branch
+			<br><pre><code>git branch -D {branch_name}</code></pre>
+		</section>
+		<section>
 			<ul>
 				Tarefa 3.1:
 				<li class="fragment">Criar uma nova branch e separar arquivos de estilo da tarefa 1</li>
-				<li class="fragment">Commit</li>
 			</ul>
 		</section>
 		<section>
@@ -285,11 +294,27 @@
 			<img src="img/checkout.svg" height="600px">
 		</section>
 		<section>
+			Trocando de branch
+			<br><pre><code>git checkout {branch_name}</code></pre>
+		</section>
+		<section>
+			<h3>Dica:</h3>
+			<br>Criar branch e fazer checkout para ela no mesmo comando:
+			<br><pre><code>git checkout -b {branch_name}</code></pre>
+		</section>
+		<section>
 			<h2>Merge</h2>
 		</section>
 		<section>
-			O comando merge é usado para juntar branches quando a tarefa de uma branche foram finalizadas.
-			<br>E esse é um dos pontos fortes do git, em um merge, ele "sabe" quais partes de um arquivo deve sustituir por outro, de maneira automática.
+			O comando merge é usado para juntar branches quando a tarefa de uma branch foi finalizada.
+			<br>E esse é um dos pontos fortes do git, ele "sabe" quais partes de um arquivo deve sustituir por outro, de maneira automática.
+		</section>
+		<section>
+			<pre><code>git merge {branch_name}</code></pre>
+		</section>
+		<section>
+			<h3>Atenção</h3>
+			<br>No momento do merge, você deve estar na branches sem alterações e no comando de merge, invocar a branch que foi alterada.
 		</section>
 		<section>
 			<img src="img/merge.svg" height="600px">
@@ -298,6 +323,8 @@
 			<ul>
 				Tarefa 3.2
 				<li>Fazer o merge da branch criada na branch master</li>
+				<li>Commit</li>
+				<li>Deletar Branch antiga</li>
 			</ul>
 		</section>
 	</section>
@@ -306,7 +333,7 @@
 			<h2>Remote</h2>
 		</section>
 		<section>
-			Servem como espelhos para base de código <span class="fragment">, também poderiam ser chamados de centralizadores, porém, estamos lidando com um sistema descentralizado.</span>
+			Servem como espelhos para base de código<span class="fragment">, também poderiam ser chamados de centralizadores, porém, estamos lidando com um sistema descentralizado.</span>
 		</section>
 		<section>
 			<br>Visualmente
@@ -461,6 +488,14 @@
 			<br><pre><code>git log --graph --oneline</code></pre>
 		</section>
 		<section>
+			<ul>
+				Outros parâmetros
+				<li>-n {valor} - exibe o número de commits pasasdo</li>
+				<li>--author="{name}" - exibe todos os commits feitos pelo autor</li>
+				<li>--pretty=format: - faz praticamente qualquer coisa com os parâmetros corretos</li>
+			</ul>
+		</section>
+		<section>
 			<h2>Blame</h2>
 			<br><pre><code>git blame {file} -L {initial_line, final_line}</code></pre>
 		</section>
@@ -469,7 +504,7 @@
 		</section>
 		<section>
 			Indo um pouco além no comando diff podemos usa-lo para exibir mudanças entre commits
-			<br><pre><code></code></pre>
+			<br><pre><code>git diff {hash_inicial}..{hash_final}</code></pre>
 		</section>
 		<section>
 			<ul>
